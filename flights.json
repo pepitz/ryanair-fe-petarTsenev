@@ -1,0 +1,20 @@
+{flights: Array(3)
+}
+flights:Array(3)
+0
+: {dateFrom: "2018-05-08T19:02:56.478Z", dateTo: "2018-05-10T09:31:54.078Z", currency: "€", price: 4.957562032155693
+}
+1
+: {dateFrom: "2018-05-02T01:26:38.662Z", dateTo: "2018-05-03T22:07:41.839Z", currency: "€", price: 117.45997205050662
+}
+2
+: {dateFrom: "2018-05-01T23:16:27.190Z", dateTo: "2018-05-07T19:29:21.715Z", currency: "€", price: 5.9258150975219905
+}
+length
+: 3
+__proto__
+:
+Array(0)
+__proto__
+:
+Object

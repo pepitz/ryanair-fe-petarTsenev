@@ -1,0 +1,564 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*, :active, :focus, :hover, :link {
+    outline: 0;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+body, input[text], button {
+    font-family: Cambria, Georgia;
+    font-size: 1em;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+#app_wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    justify-content: center;
+    background: rgba(9,51,125,1);
+    border-bottom: 3px solid #f1c933;
+}
+
+#search-wrapper {
+    width: 100%;
+    background: #2091eb;
+}
+
+#search-wrapper form {
+    padding: 5% 10%;
+}
+
+#airports_wrapper {
+    float: left;
+    position: relative;
+    width: 80%;
+}
+
+.inputGroup {
+    float: left;
+    position: relative;
+    width: 50%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputGroup input, .inputGroup label {
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #073590;
+}
+
+.inputGroup label {
+    color: black;
+}
+
+.searchResults {
+    position: relative;
+    flex: 10;
+    flex-direction: column;
+    background: darkkhaki;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 0 5px;
+    font-size: 1em;
+}
+
+.inputGroup:first-child {
+    justify-content: flex-end;
+}
+
+.inputGroup:last-child {
+    justify-content: flex-start;
+}
+
+.dropdownContainer {
+    top: 30px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    background: #D2D6D9;
+    overflow-y: auto;
+    border: 1px solid #D2D6D9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: none;
+    z-index: 1;
+}
+
+.dropdownContainer ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.dropdownContainer ul .item {
+    padding: 5px 10px;
+}
+
+.dropdownContainer ul .item:hover {
+    background: #073590;
+    color: #f1c933;
+    cursor: pointer;
+}
+
+#dates_wrapper {
+    position: relative;
+    float: left;
+    width: 80%;
+    height: 80px;
+}
+
+.date-selector {
+    position: relative;
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+.labelDate {
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.input-calendar-group {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: auto;
+    background: white;
+}
+
+.input-calendar-group .calendar {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background: white;
+    border: 1px solid #D2D6D9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: none;
+    z-index: 10;
+}
+
+.input-field {
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 1em;
+    border: none;
+    font-weight: bold;
+    color: #073590;
+}
+
+.message-error {
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    line-height: 30px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background: whitesmoke;
+    color: orangered;
+    border-bottom: 2px solid orangered;
+}
+
+.calControlsContainer {
+    box-sizing: content-box;
+    top: 0px;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background: #073590;
+    color: #f1c933;
+    border-top: 1px solid #D2D6D9;
+    border-bottom: 1px solid #D2D6D9;
+}
+
+.calInput {
+    float: left;
+    width: 80%;
+    text-align: center;
+}
+
+div.icon-arrow, i {
+    float: left;
+    background-color: white;
+    width: 10%;
+    height: 30px;
+    line-height: 30px;
+    color: black;
+}
+
+i.fa {
+    width: 100%;
+    line-height: 30px;
+    font-size: 2em;
+    text-align: center;
+}
+
+i.fa:hover {
+    cursor: pointer;
+}
+
+.calendarDaysName {
+    float: left;
+    width: 100%;
+    height: 40px;
+    background: skyblue;
+}
+
+.calDay {
+    float: left;
+    width: 14.285%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.calDate {
+    float: left;
+    width: 14.285%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.disabled {
+    background: #e0e0eb;
+    color: grey;
+    cursor: auto;
+}
+
+.calDate:hover {
+    background: #073590;
+    color: #f1c933;
+    cursor: pointer;
+}
+
+.disabled:hover {
+    background: #e0e0eb;
+    color: grey;
+    cursor: auto;
+}
+
+#submitBtn_wrapper {
+    position: relative;
+    float: left;
+    width: 20%;
+    height: 80px;
+    padding-left: 30px;
+}
+
+#searchBtn {
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    background: #f1c933;
+    color: #073590;
+    bottom: 10px;
+    border: 1px solid #f1c933;
+    border-radius: 5px;
+}
+
+#searchBtn:hover {
+    cursor: pointer;
+}
+
+#searchBtn:active {
+    background: #073590;
+    color: #f1c933;
+}
+
+/* flight results */
+
+#flight-results {
+    float: left;
+    width: 100%;
+    padding: 30px;
+    background: rgba(244, 244, 244, 1);
+}
+
+#flights-error {
+    position: relative;
+    float: left;
+    width: 70%;
+    height: auto;
+    left: 15%;
+    margin-bottom: 10px;
+    background: white;
+    border: 1px solid #D2D6D9;
+    border-radius: 5px;
+}
+
+.flights-error-logo {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 26px;
+    border-bottom: 1px solid #D2D6D9;
+}
+
+.flights-error-message {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: red;
+}
+
+.flights-error-message h1 {
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    float: left;
+    position: relative;
+}
+
+#cards_wrapper {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+.flight-card {
+    position: relative;
+    float: left;
+    width: 70%;
+    height: 140px;
+    left: 15%;
+    margin-bottom: 10px;
+    background: white;
+    border: 1px solid #D2D6D9;
+    border-radius: 5px;
+}
+
+.flight-card:last-child {
+    margin-bottom: 0px;
+}
+
+.flight-details {
+    position: relative;
+    float: left;
+    width: 70%;
+    height: 140px;
+    color: black;
+    border-right: 1px solid #D2D6D9;
+}
+
+.flight-operator-logo {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 26px;
+    border-bottom: 1px solid #D2D6D9;
+}
+
+.logo-container {
+    width: 100%;
+    height: 26px;
+    padding-left: 20px;
+}
+
+.logo-container img {
+    position: relative;
+    float: left;
+    width: auto;
+    height: 98%;
+    padding-left: 20px;
+}
+
+.flight-times {
+    width: 100%;
+    height: 140px;
+    float: left;
+    padding: 10px;
+}
+
+.duration {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: .8em;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.time {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
+.time div {
+    float: left;
+    position: relative;
+}
+
+.hour_airport {
+    width: 20%;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.hour_airport .hour, .date {
+    float: left;
+    width: 100%;
+    height: 27px;
+    font-size: 1em;
+}
+
+.hour_airport .date {
+    font-weight: normal;
+}
+
+.hour_airport .hour {
+    font-size: 1.4em;
+}
+
+.hour_airport .port {
+    width: 100%;
+    height: 23px;
+    font-size: .8em;
+}
+
+.route {
+    position: relative;
+    width: 60%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.route hr {
+    box-sizing: content-box;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #d6dce1;
+}
+
+.route i {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    left: 50%;
+    top: 10px;
+    margin-left: -15px;
+    background: white;
+    color: black;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.airports {
+    float: left;
+    width: 100%;
+    height: 26px;
+}
+
+.airports .port {
+    float: left;
+    width: 50%;
+    line-height: 26px;
+    height: 26px;
+}
+
+.port:first-child {
+    padding-left: 20px;
+}
+
+.port:last-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.flight-price {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 120px;
+}
+
+.flight-price button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    margin-left: -60px;
+    height: 50px;
+    width: 120px;
+    background: #f1c933;
+    color: #073590;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.flight-price button span {
+    width: 100%;
+    float: left;
+}
+
+.flight-price span.price-total {
+    font-size: 1.4em;
+}
+
+@media screen and (max-width: 700px) {
+    #airports_wrapper {
+        flex-direction: column;
+        justify-content: center;
+    }
+    #airports_wrapper .inputGroup {
+        flex: 1;
+        background: burlywood;
+        justify-content: flex-start;
+    }
+    .inputGroup label {
+        flex: 1;
+    }
+    .inputGroup input {
+        flex: 10;
+    }
+}

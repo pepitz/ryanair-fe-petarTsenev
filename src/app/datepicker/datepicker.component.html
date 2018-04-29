@@ -1,0 +1,49 @@
+<div class="date-selector">
+
+  <label class="labelDate" for="date{{tag}}">{{tag}} date:</label>
+
+  <div class="input-calendar-group">
+
+    <input class="input-field" name="date{{tag}}" type="text" [value]="value|date:'yyyy-MM-dd'" (click)="onShowCalendar($event)"
+      (keyup)="setValue($event.target.value)" (focus)="setCtrl(formControlType); hasValidInput(formControlType); onShowCalendar($event)"
+    />
+
+    <div class="message-error" *ngIf="dateCtrl == 'To' && formRef.controls.dateFrom.invalid">
+      Please select a 'From date: '
+    </div>
+
+    <div class="message-error" *ngIf="submitError === true && !value">
+      Please select a date!
+    </div>
+
+    <div *ngIf="hasError === false && showCalendar" class="calendar">
+      <span class="calenYear">{{ label }}</span>
+      <div class="calControlsContainer">
+        <div class="icon-arrow">
+          <i class="fa fa-angle-left" (click)="updateMonth($event, 'dec')"></i>
+        </div>
+        <div class="calInput">
+          <span>{{ months[month] }}</span>
+          <span>{{ year }}</span>
+        </div>
+        <div class="icon-arrow">
+          <i (click)="updateMonth($event, 'inc')" class="fa fa-angle-right"></i>
+        </div>
+      </div>
+      <div class="calendarDaysName">
+        <span class="calDay">Mon</span>
+        <span class="calDay">Tue</span>
+        <span class="calDay">Wed</span>
+        <span class="calDay">Thu</span>
+        <span class="calDay">Fri</span>
+        <span class="calDay">Sat</span>
+        <span class="calDay">Sun</span>
+      </div>
+      <div>
+        <span (click)="selectDay(day);" *ngFor="let day of days" [class.disabled]="isDayBeforeToday(day)" class="calDate">{{ day }}</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>

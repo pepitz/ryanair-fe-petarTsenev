@@ -1,0 +1,19 @@
+<div class="inputGroup row">
+
+  <label for={{label}}Port>{{formControlType}}: </label>
+  <div class="searchResults">
+
+
+    <input id=search{{label}} [value]="inputValue" (keyup)="checkRef($event); setValue($event.target.value)" (click)="checkRef($event); toggleDropDown($event);"
+      class="searchField" #inputField type="text" name={{label}}Port placeholder="Choose airport...">
+    <div class="message-error" *ngIf="hasError === true && !inputValue">
+      Please choose an airport!
+    </div>
+
+    <div clickOutside (clickOutside)="toggleDropDown()" *ngIf="showDropDown" class="dropdownContainer">
+      <ul>
+        <li (click)="selectValue(inputField, airPort)" class="item" *ngFor="let airPort of filteredCitites | searchFilter: getSearchValue(inputField)">{{ airPort }}</li>
+      </ul>
+    </div>
+
+  </div>

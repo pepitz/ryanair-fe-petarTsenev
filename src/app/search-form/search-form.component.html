@@ -1,0 +1,20 @@
+<section id="search-wrapper" class="container">
+  <form class="clearfix" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+    <div id="airports_wrapper" class="row">
+      <app-air-selector [formRefSubmit]="formErrors" [formControlType]="from" formControlName="airportFrom"></app-air-selector>
+      <app-air-selector [formRefSubmit]="formErrors" [formRef]="form.controls.airportFrom.value" [formControlType]="to" formControlName="airportTo"></app-air-selector>
+    </div>
+
+    <div id="dates_wrapper">
+      <app-datepicker [formRefSubmit]="formErrors" [formRef]="form" [formControlType]="from" formControlName="dateFrom" label="Estimated Date"></app-datepicker>
+      <app-datepicker [formRefSubmit]="formErrors" [formRef]="form" [formControlType]="to" formControlName="dateTo" label="Estimated Date"></app-datepicker>
+    </div>
+
+    <div id="submitBtn_wrapper">
+      <button id="searchBtn" [class.disabledBtn]="form.invalid" type="submit">Search</button>
+    </div>
+
+  </form>
+
+</section>

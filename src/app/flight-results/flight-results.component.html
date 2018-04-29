@@ -1,0 +1,72 @@
+<section id="flight-results">
+
+
+
+  <div id="cards_wrapper">
+
+    <div *ngIf="hasError === true" id="flights-error">
+      <div class="flights-error-logo">
+        <div class="logo-container">
+          <img class="logo-flight-details" src="../assets/ryanair_white_bkg.jpg" alt="ryanair logo small" />
+        </div>
+      </div>
+      <div class="flights-error-message">
+        <h1>No flights available!</h1>
+      </div>
+    </div>
+
+    <div *ngFor="let res of arrFlights" class="flight-card">
+
+      <section class="flight-details clearfix">
+
+        <div class="flight-operator-logo">
+          <div class="logo-container">
+            <img class="logo-flight-details" src="../assets/ryanair_white_bkg.jpg" alt="ryanair logo small" />
+          </div>
+        </div>
+
+        <div class="flight-times clearfix">
+
+          <div class="duration">Return flight</div>
+
+          <div class="time">
+            <div class="hour_airport">
+              <span class="date">{{res.dateFrom}}</span>
+              <span class="hour">{{res.hourFrom}}</span>
+            </div>
+
+            <div class="route">
+              <hr>
+              <i class="fa fa-plane"></i>
+            </div>
+
+            <div class="hour_airport">
+              <span class="date">{{res.dateTo}}</span>
+              <span class="hour">{{res.hourTo}}</span>
+            </div>
+
+          </div>
+
+          <div class="airports">
+            <span class="port">{{airportFrom}}</span>
+            <span class="port">{{airportTo}}</span>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="flight-price">
+        <button>
+          <span>from</span>
+          <span class="price-total">{{res.currency}}{{res.price}}</span>
+        </button>
+      </section>
+
+    </div>
+
+  </div>
+
+
+
+</section>
