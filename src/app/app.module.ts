@@ -16,6 +16,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { CityToIataPipe } from './city-to-iata.pipe';
 import { FlightResultsComponent } from './flight-results/flight-results.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AppRoutingModule } from './/app-routing.module';
     IataToCityPipe,
     DatepickerComponent,
     CityToIataPipe,
-    FlightResultsComponent
+    FlightResultsComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
